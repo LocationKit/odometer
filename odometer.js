@@ -640,8 +640,10 @@
     }, false);
   }
 
-  if (typeof define === 'function' && define.amd) {
-    define(['jquery'], function() {
+  if (typeof exports !== "undefined" && exports !== null) {
+    module.exports = Odometer;
+  } else if (typeof define === 'function' && define.amd) {
+    define(window.jQuery && ['jquery'], function() {
       return Odometer;
     });
   } else if (typeof exports !== "undefined" && exports !== null) {
